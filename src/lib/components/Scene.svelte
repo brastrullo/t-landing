@@ -1,81 +1,95 @@
 <script lang="ts">
-  import { T } from '@threlte/core'
-  import { ContactShadows, Float, Grid, OrbitControls } from '@threlte/extras'
+	import { onMount } from 'svelte'
+	import { browser } from '$app/environment'
+	import * as THREE from 'three'
+	import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+	import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
+	import * as SC from 'svelte-cubed'
+	export let scrollY
+
+	const dracoLoader = new DRACOLoader()
+	const loader = new GLTFLoader()
+	dracoLoader.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/')
+	dracoLoader.setDecoderConfig({ type: 'js' })
+	loader.setDRACOLoader(dracoLoader)
+
+	let model;
+	let texture;
+
+	let sizes = {}
+	let cubeRotationX = 0
+	let cubeRotationY = 0
+	let cubeRotationZ = 0
+
+	let sphereRotationX = 0
+	let sphereRotationY = 0
+	let devicePixelRatio = 1
+
+	const clock = new THREE.Clock()
+
+	onMount(async () => {
+		if (browser) {
+			sizes = {
+				width: window.innerWidth,
+				height: window.innerHeight
+			}
+			window.addEventListener('resize', function () {
+				sizes = {
+					width: window.innerWidth,
+					height: window.innerHeight
+				}
+			})
+
+			devicePixelRatio = window.devicePixelRatio
+			const image = new Image()
+			texture = new THREE.Texture(image)
+			image.onload = () => {
+				texture.needsUpdate = true
+			}
+			image.src = 'bird/textures/bird.png'
+			loadGLTF().then(gltf => {
+				return model = gltf
+			});
+		}
+	})
+	SC.onFrame(() => {
+		const elapsedTime = clock.getElapsedTime()
+		cubeRotationX = elapsedTime * Math.PI * 0.3
+		cubeRotationY = elapsedTime * Math.PI * 0.7
+		cubeRotationZ = elapsedTime * Math.PI * 0.05
+
+		sphereRotationX = elapsedTime * Math.PI * 0.1
+		sphereRotationY = Math.cos(elapsedTime) * 0.1
+	})
+	function loadGLTF() {
+		const model = loader.loadAsync("bird/source/bird.glb")
+		return model
+	}
 </script>
 
-<T.PerspectiveCamera
-  makeDefault
-  position={[-10, 10, 10]}
-  fov={15}
+<SC.Canvas
+	antialias
+	alpha={true}
+	width={sizes.width}
+	height={sizes.height}
+	pixelRatio={Math.min(devicePixelRatio, 2)}
 >
-  <OrbitControls
-    autoRotate
-    enableZoom={false}
-    enableDamping
-    autoRotateSpeed={0.5}
-    target.y={1.5}
-  />
-</T.PerspectiveCamera>
+	{#if model}
+		<SC.Primitive
+			object={model.scene}
+		/>
+	{/if}
+	<!-- <SC.Mesh
+		geometry={new THREE.SphereGeometry(7, 50, 50)}
+		material={new THREE.MeshNormalMaterial({ wireframe: true })}
+		rotation={[sphereRotationY, sphereRotationX, 0]}
+	/>
+	<SC.Mesh
+		geometry={new THREE.BoxGeometry()}
+		material={new THREE.MeshNormalMaterial()}
+		rotation={[cubeRotationX, cubeRotationY, cubeRotationZ]}
+	/> -->
+	<SC.PerspectiveCamera position={[1000 / scrollY * 1.5, -10, 20]} />
+</SC.Canvas>
 
-<T.DirectionalLight
-  intensity={0.8}
-  position.x={5}
-  position.y={10}
-/>
-<T.AmbientLight intensity={0.2} />
 
-<Grid
-  position.y={-0.001}
-  cellColor="#ffffff"
-  sectionColor="#ffffff"
-  sectionThickness={0}
-  fadeDistance={25}
-  cellSize={2}
-/>
-
-<ContactShadows
-  scale={10}
-  blur={2}
-  far={2.5}
-  opacity={0.5}
-/>
-
-<Float
-  floatIntensity={1}
-  floatingRange={[0, 1]}
->
-  <T.Mesh
-    position.y={1.2}
-    position.z={-0.75}
-  >
-    <T.BoxGeometry />
-    <T.MeshStandardMaterial color="#0059BA" />
-  </T.Mesh>
-</Float>
-
-<Float
-  floatIntensity={1}
-  floatingRange={[0, 1]}
->
-  <T.Mesh
-    position={[1.2, 1.5, 0.75]}
-    rotation.x={5}
-    rotation.y={71}
-  >
-    <T.TorusKnotGeometry args={[0.5, 0.15, 100, 12, 2, 3]} />
-    <T.MeshStandardMaterial color="#F85122" />
-  </T.Mesh>
-</Float>
-
-<Float
-  floatIntensity={1}
-  floatingRange={[0, 1]}
->
-  <T.Mesh
-    position={[-1.4, 1.5, 0.75]}
-    rotation={[-5, 128, 10]}
-  >
-    <T.IcosahedronGeometry />
-    <T.MeshStandardMaterial color="#F8EBCE" />
-  </T.Mesh>
-</Float>
