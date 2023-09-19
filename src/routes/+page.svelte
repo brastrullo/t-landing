@@ -36,7 +36,7 @@
 
 <svelte:window bind:scrollY bind:innerHeight={windowHeight} bind:innerWidth={windowWidth}/>
 <h1 class="hidden">Home</h1>
-<div class="fixed w-screen h-screen px-4 pt-6 pb-10 bg-white sm:p-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 dark:bg-black">
+<div class="fixed top-1/2 left-1/2 px-4 pt-6 pb-10 w-screen h-screen bg-white -translate-x-1/2 -translate-y-1/2 sm:p-10 dark:bg-black">
 	<div class="w-full h-full bg-gray-500">
 		<Canvas>
 			<!-- <BirdScene /> -->
@@ -47,7 +47,7 @@
 <div id="scrollArea" class="overflow-x-hidden bg-transparent">
 	<div class="return-home" />
 		<div
-			class="flex flex-col justify-end w-screen sm:h-screen transition-opacity sm:flex-row sm:justify-between sm:items-end sm:p-20"
+			class="flex flex-col justify-end w-screen transition-opacity sm:flex-row sm:justify-between sm:items-end sm:p-20 sm:h-screen"
 		>
 			<div class="flex flex-col justify-end h-screen sm:h-auto">
 				<p
@@ -94,11 +94,11 @@
 				</div>
 			</div>
 		</div>
-	<div class="items-end hidden w-screen h-screen sm:flex">
+	<div class="hidden items-end w-screen h-screen sm:flex">
 		<div class="z-50" />
 		<ul
 		out:fly={{ y: 600, duration: 500 }}
-		class="relative z-40 font-extralight text-4xl mx-auto py-6 flex w-[90vw] justify-around  mb-20"
+		class="flex relative z-40 justify-around py-6 mx-auto mb-20 text-4xl font-extralight w-[90vw]"
 		>
 			<li class="absolute top-0 w-full h-px bg-gradient-to-r from-red-400 via-indigo-400 to-green-400"></li>
 			{#each navItems as item, i}

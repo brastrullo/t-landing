@@ -5,8 +5,8 @@
 	export let classNames = ''
 </script>
 
-<div class="flex items-center ml-6 mr-2">
-	<label class="relative inline-block w-8 h-4">
+<div class="flex items-center mr-2 ml-6">
+	<label class="inline-block relative w-8 h-4">
 		{#if $darkMode}
 			<Moon classNames="-ml-5" />
 		{:else}

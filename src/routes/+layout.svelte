@@ -41,10 +41,10 @@
 <header class="relative">
 	<nav>
 		<ul
-			class="fixed top-0 left-0 z-50 flex items-center justify-between w-full h-6 sm:h-12 bg-gradient-to-b from-white dark:from-black via-white/90  dark:via-black/90"
+			class="flex fixed top-0 left-0 z-50 justify-between items-center w-full h-6 bg-gradient-to-b from-white sm:h-12 dark:from-black via-white/90 dark:via-black/90"
 		>
 			<li>
-				<a href="/" class="w-2/3 ml-2 sm:ml-4 font-extralight dark:text-white">bradleyrastru<Llo /></a>
+				<a href="/" class="ml-2 w-2/3 font-extralight sm:ml-4 dark:text-white">bradleyrastru<Llo /></a>
 			</li>
 			<li class="flex justify-end w-1/3">
 				{#if !$modalIsOpen}
@@ -55,7 +55,7 @@
 					>
 					<button class="mr-4 font-semibold md:hidden" on:click={() =>toggleModal(modalIsOpen)}>menu</button>
 				{/if}
-				<ul class="items-center justify-end hidden md:flex">
+				<ul class="hidden justify-end items-center md:flex">
 					<li class:hidden={hideContactButton} class="mr-6"><ContactButtonSmall /></li>
 					<li class="mr-4 font-semibold hover:underline underline-offset-4">
 						<a href="/about">about</a>
@@ -69,7 +69,7 @@
 		<ul
 			in:fly={{ y: 100, duration: 250, easing: quintInOut }}
 			style={`${shouldBeHidden ? 'display:none' : ''}`}
-			class="hidden font-light md:flex fixed rotate-90 w-[40vh] justify-end translate-x-0 -translate-y-[40vh] bottom-0 origin-bottom-left z-50"
+			class="hidden fixed bottom-0 z-50 justify-end font-light origin-bottom-left rotate-90 translate-x-0 md:flex w-[40vh] -translate-y-[40vh]"
 		>
 			{#each links.slice(2) as link, i}
 				<li class={`transition mr-12 hover:scale-110 hover:drop-shadow-sm`}>

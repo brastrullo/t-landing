@@ -1,4 +1,4 @@
-<header class ="absolute top-0 left-0 flex bg-white space-x-1">
+<header class ="flex absolute top-0 left-0 space-x-1 bg-white">
   <h1 class="flex">
     b||r
   </h1>

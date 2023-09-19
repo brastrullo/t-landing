@@ -9,7 +9,7 @@
   }
 </script>
 
-<section id="io" class="z-40 flex items-center justify-center h-screen">
+<section id="io" class="flex z-40 justify-center items-center h-screen">
   <p class:intersecting class="bg-slate-400">
     {intersecting ? "Element is in view" : "Element is not in view"}
   </p>

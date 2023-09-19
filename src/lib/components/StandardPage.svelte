@@ -18,7 +18,7 @@
 <div class="absolute top-0 left-0 w-screen h-screen bg-white dark:bg-black">
   {#if ready}
     <section
-      class="flex flex-col items-center justify-end h-screen sm:justify-center md:justify-start"
+      class="flex flex-col justify-end items-center h-screen sm:justify-center md:justify-start"
     >
       <div class="relative transition">
         <div
@@ -33,7 +33,7 @@
           rel="noreferrer"
           {href}
           target="_blank"
-          class="transition hover:scale-110 text-white px-10 py-4 font-semibold  absolute bottom-[80vh] sm:bottom-4 left-1/2 -translate-x-1/2 bg-black/40 hover:bg-black/40 hover:text-white/80"
+          class="absolute left-1/2 py-4 px-10 font-semibold text-white transition -translate-x-1/2 sm:bottom-4 hover:scale-110 bottom-[80vh] bg-black/40 hover:bg-black/40 hover:text-white/80"
           >visit</a
         >
       </div>

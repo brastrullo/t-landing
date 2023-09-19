@@ -13,11 +13,11 @@
 </script>
 
 <VerticalTitleHeader {title} />
-<div class="absolute top-0 left-0 flex flex-col justify-between w-screen h-screen overflow-x-hidden bg-white dark:bg-black sm:overflow-y-hidden">
+<div class="flex overflow-x-hidden absolute top-0 left-0 flex-col justify-between w-screen h-screen bg-white sm:overflow-y-hidden dark:bg-black">
   {#if ready}
-    <h2 transition:fade class="relative right-0 z-30 block my-auto ml-16 mr-4 font-serif text-3xl italic text-right sm:ml-24 sm:text-left sm:text-4xl sm:max-w-1/2 sm:w-1/2">{subText}</h2>
+    <h2 transition:fade class="block relative right-0 z-30 my-auto mr-4 ml-16 font-serif text-3xl italic text-right sm:ml-24 sm:w-1/2 sm:text-4xl sm:text-left sm:max-w-1/2">{subText}</h2>
     <section
-      class="flex flex-col items-center justify-end sm:flex-row sm:justify-center md:justify-start"
+      class="flex flex-col justify-end items-center sm:flex-row sm:justify-center md:justify-start"
     >
       <div class="ml-10 opacity-20 dark:opacity-20 transition absolute top-[10vh] sm:-right-[50%] md:-right-[80%] w-[130vw] max-h-[90vh] overflow-x-hidden">
         <div

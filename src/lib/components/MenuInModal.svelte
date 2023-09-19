@@ -25,15 +25,15 @@
   console.log({linksLength});
 </script>
 
-<div class="bg-black/70 fixed h-screen w-screen top-0 left-0 z-[60] flex flex-col">
+<div class="flex fixed top-0 left-0 flex-col w-screen h-screen bg-black/70 z-[60]">
   {#if ready}
 	<div
 		transition:fly={{ easing: quintInOut, y: -150, duration: 250 }}
-		class="dark:bg-black bg-white flex justify-between border-b border-black/10 dark:border-white/10 h-[4rem]"
+		class="flex justify-between bg-white border-b dark:bg-black border-black/10 h-[4rem] dark:border-white/10"
 	>
 		<ToggleButton />
-		<a href="/" on:click={toggleModal} class="mx-4 my-auto font-light">bradleyrastru<Llo /></a>
-		<button on:click={toggleModal} class="text-black z-[80] m-4 font-black text-3xl dark:text-white"
+		<a href="/" on:click={toggleModal} class="my-auto mx-4 font-light">bradleyrastru<Llo /></a>
+		<button on:click={toggleModal} class="m-4 text-3xl font-black text-black dark:text-white z-[80]"
 			>X</button
 		>
 	</div>
@@ -44,16 +44,11 @@
     duration: 425 - i * 5
   }} -->
 
-	<ul transition:fade class="flex flex-col w-screen text-2xl font-bold text-center">
+	<ul transition:fade class="flex flex-col w-screen text-2xl font-bold text-center h-[calc(100vh-4rem)]">
 		{#each links as link, i (link.name)}
 			<li
-        transition:fly={{
-          easing: quintInOut,
-          x: i % 2 === 0 ? 400 : -400,
-          duration: 425 - i * 5
-        }}
-
-				class={`h-[calc((100vh/${linksLength})-4rem)] flex border-b border-black/10 bg-white dark:border-white/10 dark:bg-black`}
+				transition:fly={{ easing: quintInOut, y: -150, duration: 250 }}
+				class={`h-full flex border-b border-black/10 bg-white dark:border-white/10 dark:bg-black`}
 			>
 				<a
 					class={`transition hover:scale-125 py-14 px-[calc(30vw-1rem)] m-auto`}

@@ -21,12 +21,12 @@
 <VerticalTitleHeader {title} />
 <div class="h-[calc(100vh-.5rem)] w-screen relative top-0 left-0 z-0 bg-white dark:bg-black md:overflow-hidden">
 	<section
-		class="flex flex-col-reverse justify-between mt-8 sm:h-full md:ml-20 sm:mx-4 sm:pb-20 md:pb-0 md:flex-row md:my-auto sm:items-end md:flex-nowrap sm:justify-start"
+		class="flex flex-col-reverse justify-between mt-8 sm:justify-start sm:items-end sm:pb-20 sm:mx-4 sm:h-full md:flex-row md:flex-nowrap md:pb-0 md:my-auto md:ml-20"
 	>
-		<div class="z-40 flex flex-col mb-8 sm:w-auto md:pl-10 sm:mb-4 md:mr-8 md:my-auto bg-white/80 dark:bg-black/80">
+		<div class="flex z-40 flex-col mb-8 sm:mb-4 sm:w-auto md:pl-10 md:my-auto md:mr-8 bg-white/80 dark:bg-black/80">
 			<GithubLinkedin />
 			<p
-				class="md:max-w-[30rem] inline-block sm:h-min max-h-auto sm:max-h-[30rem] px-8 sm:p-0 sm:max-h-auto sm:mt-0 sm:mb-8 first-letter:text-5xl first-letter:font-black md:first-letter:text-8xl md:first-letter:font-bold"
+				class="inline-block px-8 sm:p-0 sm:mt-0 sm:mb-8 max-h-auto sm:h-min sm:max-h-[30rem] sm:max-h-auto md:max-w-[30rem] md:first-letter:text-8xl md:first-letter:font-bold first-letter:text-5xl first-letter:font-black"
 				in:fly={{ y: 1000, easing: quintInOut, duration: 550 }}
 				out:fade
 			>
@@ -66,10 +66,10 @@
 			</div>
 		</div>
 		<div
-			class="md:mx-auto sm:ml-0 sm:w-full lg:max-w-[50vw] max-h-[50vh] md:max-h-full my-auto flex overflow-hidden"
+			class="flex overflow-hidden my-auto sm:ml-0 sm:w-full md:mx-auto md:max-h-full max-h-[50vh] lg:max-w-[50vw]"
 		>
 			<div
-				class="bg-cover object-cover opacity-70 mx-auto dark:opacity-50 bg-white dark:bg-black w-[130vw] sm:w-full overflow-hidden"
+				class="object-cover overflow-hidden mx-auto bg-white bg-cover opacity-70 sm:w-full dark:bg-black dark:opacity-50 w-[130vw]"
 			>
 				<AboutBGSvg />
 			</div>
