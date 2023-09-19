@@ -9,6 +9,7 @@
   fov={15}
 >
   <OrbitControls
+    enabled={false}
     autoRotate
     enableZoom={false}
     enableDamping

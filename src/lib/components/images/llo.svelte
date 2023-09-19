@@ -1,1 +1,1 @@
-<span class="text-red-500 font-bold">|</span><span class="text-indigo-500 font-bold">|</span><span class="text-green-500 font-normal">o</span>
+<span class="font-bold text-red-500">|</span><span class="font-bold text-indigo-500">|</span><span class="font-normal text-green-500">o</span>

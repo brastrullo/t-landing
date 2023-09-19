@@ -5,14 +5,14 @@
 	export let classNames = ''
 </script>
 
-<div class="flex items-center mr-2 ml-6">
+<div class="flex items-center ml-6 mr-2">
 	<label class="relative inline-block w-8 h-4">
 		{#if $darkMode}
 			<Moon classNames="-ml-5" />
 		{:else}
 			<Sun classNames="-ml-5" />
 		{/if}
-		<input on:click={toggleState} type="checkbox" class="opacity-0 w-0 h-0 bg-white" />
+		<input on:click={toggleState} type="checkbox" class="w-0 h-0 bg-white opacity-0" />
 		<span
 			class={`rounded-full absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-white border border-black dark:border-white transition ${classNames}`}
 		/>

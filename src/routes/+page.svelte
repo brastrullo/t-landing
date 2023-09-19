@@ -36,20 +36,20 @@
 
 <svelte:window bind:scrollY bind:innerHeight={windowHeight} bind:innerWidth={windowWidth}/>
 <h1 class="hidden">Home</h1>
-<div class="w-screen h-screen p-10 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-black">
-	<div class="h-full w-full bg-gray-500">
+<div class="fixed w-screen h-screen px-4 pt-6 pb-10 bg-white sm:p-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 dark:bg-black">
+	<div class="w-full h-full bg-gray-500">
 		<Canvas>
 			<!-- <BirdScene /> -->
 			<SceneDefault />
 		</Canvas>
 	</div>
 </div>
-<div id="scrollArea" class="bg-transparent overflow-x-hidden">
+<div id="scrollArea" class="overflow-x-hidden bg-transparent">
 	<div class="return-home" />
 		<div
-			class="sm:h-screen w-screen transition-opacity flex flex-col sm:flex-row justify-end sm:justify-between sm:items-end sm:p-20"
+			class="flex flex-col justify-end w-screen sm:h-screen transition-opacity sm:flex-row sm:justify-between sm:items-end sm:p-20"
 		>
-			<div class="h-screen sm:h-auto flex flex-col justify-end">
+			<div class="flex flex-col justify-end h-screen sm:h-auto">
 				<p
 					style={`transform: translate(-${scrollY * 0.7 * 10}px, ${scrollY}px); opacity: ${
 						10 / scrollY
@@ -85,7 +85,7 @@
 				<div
 					in:fade
 					out:fly={{ delay: 100, x: 600, duration: 250, easing: quintInOut }}
-					class="drop-shadow-2xl z-40"
+					class="z-40 drop-shadow-2xl"
 				>
 					<ContactButton
 						wrapperClassNames="my-[1.25rem]"
@@ -94,19 +94,19 @@
 				</div>
 			</div>
 		</div>
-	<div class="hidden sm:flex h-screen w-screen items-end">
+	<div class="items-end hidden w-screen h-screen sm:flex">
 		<div class="z-50" />
 		<ul
 		out:fly={{ y: 600, duration: 500 }}
 		class="relative z-40 font-extralight text-4xl mx-auto py-6 flex w-[90vw] justify-around  mb-20"
 		>
-			<li class="bg-gradient-to-r from-red-400 via-indigo-400 to-green-400 absolute h-px w-full top-0"></li>
+			<li class="absolute top-0 w-full h-px bg-gradient-to-r from-red-400 via-indigo-400 to-green-400"></li>
 			{#each navItems as item, i}
-				<li class={`transition hover:scale-110 text-shadow text-white font-light ${colorsArr[i]}`}>
+				<li class={`transition hover:scale-110 text-shadow font-light ${colorsArr[i]}`}>
 					<a href={`/${item}`} data-svelte-no-scroll>{item.toUpperCase()}</a>
 				</li>
 			{/each}
-			<li class="bg-gradient-to-r from-red-400 via-indigo-400 to-green-400 absolute h-px w-full bottom-0"></li>
+			<li class="absolute bottom-0 w-full h-px bg-gradient-to-r from-red-400 via-indigo-400 to-green-400"></li>
 		</ul>
 	</div>
 </div>
