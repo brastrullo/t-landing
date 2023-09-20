@@ -20,7 +20,7 @@
       <section
         class="flex flex-col items-center justify-end sm:flex-row sm:justify-center md:justify-start"
       >
-        <div class="overflow-y-hidden sm:overflow-auto ml-10 opacity-20 dark:opacity-20 transition absolute top-[10vh] -left-10 md:left-1/3 xl:left-1/2 3xl:left-1/2 w-[130vw] max-h-[90vh] overflow-x-hidden">
+        <div class="overflow-y-hidden sm:overflow-auto ml-10 opacity-20 dark:opacity-30 transition absolute top-[10vh] -left-10 md:left-1/3 xl:left-1/2 3xl:left-1/2 w-[130vw] max-h-[90vh] overflow-x-hidden">
           <div
             transition:fade
             class="bg-white dark:bg-black"

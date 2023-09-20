@@ -12,9 +12,7 @@
 
 	$: isHome = $page.url.pathname === '/';
 	$: isAbout = $page.url.pathname === '/about';
-	// $: isClients = $page.url.pathname === '/clients'
-	// $: isBlog = $page.url.pathname === '/blog'
-	// $: isSocial = $page.url.pathname === '/social'
+
 
 	$: shouldBeHidden = isHome;
 	$: hideContactButton = isAbout || isHome;

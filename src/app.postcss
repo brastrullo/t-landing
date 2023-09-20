@@ -40,11 +40,19 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+html,body, #scrollArea {
   @apply svg-bg-light bg-fixed;
+  scroll-snap-type: y mandatory;
+  overflow: scroll;
 }
+
 html.dark {
   @apply svg-bg-dark bg-black bg-fixed;
+}
+
+.introContainer,
+.buttonContainer {
+  scroll-snap-align: end;
 }
 
 .dark {
