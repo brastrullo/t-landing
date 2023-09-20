@@ -1,63 +1,51 @@
 <script>
 	import '../app.postcss';
-	import { browser } from '$app/environment'
-	import { page } from '$app/stores'
-	import { fly, fade, slide } from 'svelte/transition'
-	import { quintInOut } from 'svelte/easing'
-	import ToggleButton from '$lib/components/ToggleButton.svelte'
-	import ContactButtonSmall from '$lib/components/ContactButtonSmall.svelte'
-	import { writable, get } from 'svelte/store'
-	import { darkMode } from '$lib/utils/store'
-	import Llo from '$lib/components/images/llo.svelte'
+	import { page } from '$app/stores';
+	import { fly } from 'svelte/transition';
+	import { quintInOut } from 'svelte/easing';
+	import ToggleButton from '$lib/components/ToggleButton.svelte';
+	import ContactButtonSmall from '$lib/components/ContactButtonSmall.svelte';
+	import Llo from '$lib/components/images/llo.svelte';
 	import MenuInModal from '../lib/components/MenuInModal.svelte';
-	import { toggleModal } from '$lib/utils/utils';
-	
-	const modalIsOpen = writable(false)
-	const isDarkMode = get(darkMode)
+	import { menuToggle } from '$lib/utils/store';
+	import { links } from '$lib/utils/utils';
 
-	const links = [
-		{ name: 'home', href: '/' },
-		{ name: 'about', href: '/about' },
-		{ name: 'clients', href: '/clients' },
-		{ name: 'blog', href: '/blog' },
-		{ name: 'social', href: '/social' },
-	]
-
-	const linksLength = links.length
-
-	$: isHome = $page.url.pathname === '/'
-	$: isAbout = $page.url.pathname === '/about'
+	$: isHome = $page.url.pathname === '/';
+	$: isAbout = $page.url.pathname === '/about';
 	// $: isClients = $page.url.pathname === '/clients'
 	// $: isBlog = $page.url.pathname === '/blog'
 	// $: isSocial = $page.url.pathname === '/social'
 
-	$: shouldBeHidden = isHome
-	$: hideContactButton = isAbout || isHome
+	$: shouldBeHidden = isHome;
+	$: hideContactButton = isAbout || isHome;
 
-	const colorsArr = ['text-red-400', 'text-indigo-400', 'text-green-400']
-
+	const colorsArr = ['text-red-400', 'text-indigo-400', 'text-green-400'];
 </script>
 
 <header class="relative">
 	<nav>
 		<ul
-			class="flex fixed top-0 left-0 z-50 justify-between items-center w-full h-6 bg-gradient-to-b from-white sm:h-12 dark:from-black via-white/90 dark:via-black/90"
+			class="fixed top-0 left-0 z-50 flex items-center justify-between w-full h-6 xl:h-12 xl:text-xl 3xl:x-center-fixed bg-gradient-to-b from-white sm:h-12 dark:from-black via-white/90 dark:via-black/90"
 		>
 			<li>
-				<a href="/" class="ml-2 w-2/3 font-extralight sm:ml-4 dark:text-white">bradleyrastru<Llo /></a>
+				<a href="/" class="w-2/3 ml-2 font-extralight sm:ml-4 dark:text-white"
+					>bradleyrastru<Llo /></a
+				>
 			</li>
 			<li class="flex justify-end w-1/3">
-				{#if !$modalIsOpen}
+				{#if !$menuToggle}
 					<a
 						href="/about"
 						class="mr-8 font-semibold md:hidden"
 						style={`${isAbout ? 'display:none' : ''}`}>about</a
 					>
-					<button class="mr-4 font-semibold md:hidden" on:click={() =>toggleModal(modalIsOpen)}>menu</button>
+					<button class="mr-4 font-semibold md:hidden" on:click={menuToggle.toggle}
+						>menu</button
+					>
 				{/if}
-				<ul class="hidden justify-end items-center md:flex">
+				<ul class="items-center justify-end hidden md:flex">
 					<li class:hidden={hideContactButton} class="mr-6"><ContactButtonSmall /></li>
-					<li class="mr-4 font-semibold hover:underline underline-offset-4">
+					<li class:hidden={isAbout} class="mr-4 font-semibold hover:underline underline-offset-4">
 						<a href="/about">about</a>
 					</li>
 					<li>
@@ -66,24 +54,25 @@
 				</ul>
 			</li>
 		</ul>
-		<ul
-			in:fly={{ y: 100, duration: 250, easing: quintInOut }}
-			style={`${shouldBeHidden ? 'display:none' : ''}`}
-			class="hidden fixed bottom-0 z-50 justify-end font-light origin-bottom-left rotate-90 translate-x-0 md:flex w-[40vh] -translate-y-[40vh]"
-		>
-			{#each links.slice(2) as link, i}
-				<li class={`transition mr-12 hover:scale-110 hover:drop-shadow-sm`}>
-					<a href={link.href} class:line-through={$page.url.pathname === `/${link.name}`}
-						>{link.name.toUpperCase()}</a
-					>
-				</li>
+		<div class="3xl:container 3xl:mx-auto">
+			<ul
+				in:fly={{ y: 100, duration: 250, easing: quintInOut }}
+				style={`${shouldBeHidden ? 'display:none' : ''}`}
+				class="hidden fixed bottom-0 z-50 justify-end font-light origin-bottom-left rotate-90 translate-x-0 md:flex w-[40vh] -translate-y-[40vh]"
+			>
+				{#each links.slice(2) as link, i}
+					<li class={`transition mr-12 lg:mr-16 hover:scale-110 hover:drop-shadow-sm`}>
+						<a href={link.href} class:line-through={$page.url.pathname === `/${link.name}`}
+							>{link.name.toUpperCase()}</a
+						>
+					</li>
 				{/each}
-		</ul>
+			</ul>
+		</div>
 	</nav>
 </header>
-
-{#if $modalIsOpen}
-	<MenuInModal {modalIsOpen}/>
+{#if $menuToggle}
+	<MenuInModal />
 {/if}
 
 <slot />

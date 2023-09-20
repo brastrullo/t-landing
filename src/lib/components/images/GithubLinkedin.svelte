@@ -10,8 +10,8 @@
 </script>
 
 <div
-	class="flex justify-center mt-8 mb-1 font-thin border-b md:justify-end links border-inherit"
-	in:fly={{ x: -300, delay: 150, duration: 500 }}
+	class="flex justify-center mt-8 mb-1 font-thin border-b md:justify-end links border-inherit 5xl:text-2xl"
+	in:fly={{ x: -300, delay: 300, duration: 500 }}
 	out:fade
 >
 	{#each links as link, i}

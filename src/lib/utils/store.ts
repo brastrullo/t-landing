@@ -19,3 +19,13 @@ export const toggleState = () => {
   document.documentElement.classList.toggle('dark');
   // document.documentElement.classList.toggle('dark-mode');
 };
+
+export function modalToggle() {
+	const { subscribe, update } = writable(false);
+	return {
+		subscribe,
+    toggle: () => update((n) => !n),
+	};
+}
+
+export const menuToggle = modalToggle()

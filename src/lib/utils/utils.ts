@@ -1,9 +1,9 @@
-import { browser } from '$app/environment'
-import type { Writable } from 'svelte/store'
+export const links = [
+  { name: 'home', href: '/' },
+  { name: 'about', href: '/about' },
+  { name: 'clients', href: '/clients' },
+  { name: 'blog', href: '/blog' },
+  { name: 'social', href: '/social' }
+];
 
-export const toggleModal = (subscriberCallback: Writable<boolean>) => {
-  subscriberCallback.update((n: boolean) => !n)
-  if (browser) {
-    document.querySelector('body')?.classList.toggle('overflow-hidden')
-  }
-}
+export const linksLength = links.length;
