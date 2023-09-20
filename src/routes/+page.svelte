@@ -27,9 +27,9 @@
 <svelte:window bind:scrollY bind:innerHeight={windowHeight} bind:innerWidth={windowWidth} />
 <h1 class="hidden">Home</h1>
 <div
-	class="fixed w-screen h-screen px-4 pt-6 pb-10 overflow-hidden -translate-x-1/2 -translate-y-1/2 bg-white xl:pt-12 3xl:container 3xl:mx-auto top-1/2 left-1/2 sm:p-10 dark:bg-black"
+	class="fixed w-screen h-screen h-[100dvh] px-4 pt-6 pb-10 overflow-hidden -translate-x-1/2 -translate-y-1/2 bg-white overscroll-contain xl:pt-12 3xl:container 3xl:mx-auto top-1/2 left-1/2 sm:p-10 dark:bg-black"
 >
-	<div class="w-full h-full overflow-hidden bg-gray-500">
+	<div class="w-full h-full overflow-hidden bg-gray-500 overscroll-contain">
 		<Canvas>
 			<SceneDefault />
 		</Canvas>
@@ -42,9 +42,9 @@
 >
 	<div class="return-home" />
 	<div
-		class="flex flex-col justify-end w-screen transition-opacity 3xl:container 3xl:mx-auto sm:flex-row sm:justify-between sm:items-end sm:p-20 sm:h-screen"
+		class="flex flex-col justify-end w-screen transition-opacity 3xl:container 3xl:mx-auto sm:flex-row sm:justify-between sm:items-end sm:p-20 sm:h-screen sm:h-[100dvh]"
 	>
-		<div class="flex flex-col justify-end h-screen sm:h-auto snap-end introContainer">
+		<div class="flex flex-col justify-end h-screen h-[100dvh] sm:h-auto snap-end introContainer">
 			<p
 				style={`transform: translate(-${scrollY * 0.7 * 10}px, ${scrollY}px); opacity: ${
 					10 / scrollY
@@ -74,7 +74,7 @@
 			}`}
 			class={`${
 				scrollY > 25 ? 'sm:invisible' : ''
-			} buttonContainer snap-end sm:visible h-screen sm:h-auto text-2xl flex flex-col justify-end sm:w-1/2 sm:bottom-20 sm:right-20 text-center sm:text-right mb-8 sm:mb-0`}
+			} buttonContainer snap-end sm:visible h-screen h-[100dvh] sm:h-auto text-2xl flex flex-col justify-end sm:w-1/2 sm:bottom-20 sm:right-20 text-center sm:text-right mb-8 sm:mb-0`}
 		>
 			<p
 				class="z-40 home-sub-text 5xl:text-4xl mb-[calc(25vh)] text-green-300 px-2 sm:px-0 sm:mb-4 sm:pl-4 font-light drop-shadow-2xl sm:bg-none"
@@ -95,7 +95,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="items-end hidden w-screen h-screen sm:flex 3xl:container 3xl:mx-auto">
+	<div class="items-end hidden w-screen h-screen h-[100dvh] sm:flex 3xl:container 3xl:mx-auto">
 		<div class="z-50" />
 		<ul
 			out:fly={{ y: 600, duration: 500 }}

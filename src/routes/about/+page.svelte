@@ -4,8 +4,8 @@
 	import { fly, fade } from 'svelte/transition';
 	import { quintInOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
-	import VerticalTitleHeader from '$lib/components/VerticalTitleHeaderAlt.svelte';
-	import AboutBGSvg from '$lib/components/images/about3.svelte';
+	import VerticalTitleHeader from '$lib/components/VerticalTitleHeader.svelte';
+	import AboutBGSvg from '$lib/components/images/about.svelte';
 	import GithubLinkedin from '$lib/components/images/GithubLinkedin.svelte';
 	// import About from '$lib/components/images/about.svelte';
 
@@ -19,7 +19,7 @@
 </script>
 
 <div class="w-screen h-screen 2xl:svg-bg-light 2xl:dark:svg-bg-dark">
-	<div class="h-[calc(100vh-.5rem)] w-screen relative top-0 left-0 z-0 bg-white dark:bg-black md:overflow-hidden 3xl:container 3xl:mx-auto">
+	<div class="h-[calc(100vh-.5rem)] w-screen relative top-0 left-0 z-0 bg-white dark:bg-black overscroll-contain md:overflow-hidden 3xl:container 3xl:mx-auto">
 		<section
 		class="flex flex-col-reverse justify-between mt-8 3xl:container 3xl:mx-auto sm:justify-start sm:items-end sm:pb-20 lg:mx-4 sm:h-full md:flex-row md:flex-nowrap md:pb-0 md:my-auto md:ml-20"
 		>
@@ -69,10 +69,10 @@
 				</div>
 			</div>
 			<div
-				class="flex overflow-hidden my-auto sm:ml-0 sm:w-full md:mx-auto md:max-h-full max-h-[50vh] lg:max-w-[50vw]"
+				class="flex overscroll-contain overflow-hidden my-auto sm:ml-0 sm:w-full md:mx-auto md:max-h-full max-h-[50vh] lg:max-w-[50vw]"
 			>
 				<div
-					class="object-cover overflow-hidden mx-auto bg-white bg-cover opacity-70 sm:w-full dark:bg-black dark:opacity-50 w-[130vw]"
+					class="object-cover overscroll-contain overflow-hidden mx-auto bg-white bg-cover opacity-70 sm:w-full dark:bg-black dark:opacity-50 w-[130vw]"
 				>
 					<AboutBGSvg />
 				</div>

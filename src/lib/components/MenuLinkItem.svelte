@@ -1,11 +1,10 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 	import { quintInOut } from 'svelte/easing';
-	import { menuToggle } from '$lib/utils/store';
+	import { closeModal } from '$lib/utils/store';
 
   export let link = { name: '', href: ''}
   export let i = 0
-
 </script>
 
 <li
@@ -19,7 +18,7 @@
   <a
     class={`transition h-full hover:scale-125 flex w-full relative`}
     href={link.href}
-    on:click={menuToggle.toggle}
+    on:click={closeModal}
     ><span class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
       >{link.name}</span
     ></a

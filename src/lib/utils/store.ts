@@ -25,7 +25,15 @@ export function modalToggle() {
 	return {
 		subscribe,
     toggle: () => update((n) => !n),
+    close: () => update(() => false)
 	};
+}
+
+export function closeModal() {
+  menuToggle.close()
+  if (browser) {
+    document.querySelector('html')?.classList.remove('overflow-hidden')
+  }
 }
 
 export const menuToggle = modalToggle()

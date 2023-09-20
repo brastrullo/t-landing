@@ -1,6 +1,6 @@
 <script>
 	import { page } from '$app/stores';
-	import StandardPage from '$lib/components/StandardPageAlt.svelte'
+	import StandardPage from '$lib/components/StandardPage.svelte'
 	import ClientsBGSvg from '$lib/components/images/clients.svelte'
 </script>
 
