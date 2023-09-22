@@ -6,8 +6,6 @@
 	import VerticalTitleHeader from '$lib/components/VerticalTitleHeader.svelte';
 	import AboutBGSvg from '$lib/components/images/about.svelte';
 	import GithubLinkedin from '$lib/components/images/GithubLinkedin.svelte';
-	// import About from '$lib/components/images/about.svelte';
-
 
 	const title = 'ABOUT';
 
@@ -15,7 +13,7 @@
 	onMount(() => (ready = true));
 </script>
 
-<div class="w-screen h-screen 2xl:svg-bg-light 2xl:dark:svg-bg-dark">
+<div class="w-screen element-100dvh 2xl:svg-bg-light 2xl:dark:svg-bg-dark">
 	<div class="h-[100dvh] w-screen relative top-0 left-0 z-0 bg-white dark:bg-black overscroll-contain md:overflow-hidden 3xl:container 3xl:mx-auto overflow-y-scroll">
 		<section
 		class="flex flex-col-reverse justify-between mt-8 sm:justify-start sm:items-end sm:pb-20 sm:h-full md:flex-row md:flex-nowrap md:pb-0 md:my-auto md:ml-20 lg:mx-4 3xl:container 3xl:mx-auto"
@@ -26,11 +24,12 @@
 			<div class="relative z-50 lg:static lg:z-auto flex flex-col mb-8 sm:mb-4 sm:w-auto xl:text-lg 5xl:text-xl 3xl:w-full 3xl:pl-[20%] lg:w-1/2 md:pl-10 lg:pl-20 md:my-auto md:mr-8 bg-white/80 dark:bg-black/80">
 				<GithubLinkedin />
 				<p
-					class="inline-block px-8 sm:mt-0 sm:mb-8 md:p-0 xl:max-w-none max-h-auto sm:h-min sm:max-h-[30rem] sm:max-h-auto md:max-w-[30rem] md:first-letter:text-8xl md:first-letter:font-bold first-letter:text-5xl first-letter:font-black"
+					class="inline-block px-8 sm:mt-0 sm:mb-8 md:p-0 xl:max-w-none max-h-auto sm:h-min sm:max-h-[30rem] sm:max-h-auto md:max-w-[30rem] "
 					in:fly={{ y: 1000, easing: quintInOut, duration: 550 }}
 					out:fade
 				>
-					Hi there! I'm Brad a full stack web developer from Toronto, Canada, specializing in the
+				<span class="inline-block my-4 font-serif text-sm italic">Welcome to v1.0 of my custom portfolio site I use as an experimental coding playground dabble in current technologies.</span>
+				I'm Brad a full stack web developer from Toronto, Canada, specializing in the
 					Frontend with over 7 years of experience. I got my start in the industry by landing a junior
 					position after <a
 						class="link disabled"
@@ -38,22 +37,22 @@
 						href="https://brd.rs/coding-empowers"
 						rel="noreferrer"
 						target="_blank">6 months of self-teaching</a
-					>. Looking back on how coding has empowered me, I am looking to do the same through
+					>. Looking back on how coding has empowered me, I am looking to do the same through teaching at
 					<a
 						class="link disabled"
 						title="learn.rastr.studio coming soon..."
 						href="https://learn.rastr.studio"
 						rel="noreferrer"
 						target="_blank">teaching</a
-					>. I am a tech advocate but when I am not working on a creative project you can find me
-					biking. I run a personal blog
+					>. When I am not working on a creative project you can find me
+					biking. I run a personal blog at
 					<a
 						class="link disabled"
 						title="Blog coming soon..."
 						href="https://brd.rs"
 						rel="noreferrer"
 						target="_blank">brd.rs</a
-					>. This is v1.0 for my website and I'll updating the links as I finish my website projects.
+					>.
 				</p>
 				<div
 					in:fly={{ delay: 150, y: 300, easing: quintInOut, duration: 550 }}
