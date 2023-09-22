@@ -38,7 +38,7 @@
 			>X</button
 		>
 	</div>
-	<ul class="flex flex-col w-screen text-2xl font-bold text-center h-[calc(100vh-4rem)]">
+	<ul class="flex flex-col w-screen h-full text-2xl font-bold text-center">
 		<MenuLinkItem link={links[0]} i={0} />
 		<MenuLinkItem link={links[1]} i={1} />
 		<MenuLinkItem link={links[2]} i={2} />
