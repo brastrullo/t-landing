@@ -41,7 +41,7 @@
 @tailwind utilities;
 
 html, body {
-  @apply overscroll-none svg-bg-light bg-fixed;
+  @apply overscroll-none svg-bg-light bg-fixed overflow-hidden;
 }
 
 body {
@@ -50,10 +50,6 @@ body {
 
 html.dark {
   @apply svg-bg-dark bg-black bg-fixed;
-}
-
-#scrollArea {
-  @apply fixed h-screen overflow-y-scroll;
 }
 
 .dark {

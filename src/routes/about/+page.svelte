@@ -16,7 +16,7 @@
 </script>
 
 <div class="w-screen h-screen 2xl:svg-bg-light 2xl:dark:svg-bg-dark">
-	<div class="h-[100dvh] w-screen relative top-0 left-0 z-0 bg-white dark:bg-black overscroll-contain md:overflow-hidden 3xl:container 3xl:mx-auto">
+	<div class="h-[100dvh] w-screen relative top-0 left-0 z-0 bg-white dark:bg-black overscroll-contain md:overflow-hidden 3xl:container 3xl:mx-auto overflow-y-scroll">
 		<section
 		class="flex flex-col-reverse justify-between mt-8 sm:justify-start sm:items-end sm:pb-20 sm:h-full md:flex-row md:flex-nowrap md:pb-0 md:my-auto md:ml-20 lg:mx-4 3xl:container 3xl:mx-auto"
 		>
