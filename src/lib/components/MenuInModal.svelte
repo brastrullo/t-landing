@@ -8,24 +8,23 @@
 	import { links } from '$lib/utils/utils';
 	import MenuLinkItem from './MenuLinkItem.svelte';
 	import { browser } from '$app/environment';
-	let ready = false;
-	onMount(() => (ready = true));
 
 	let vh;
 
 	if (browser) {
 		vh = window.innerHeight * 0.01;
-		document.documentElement.style.setProperty('--vh', `${vh}px`);
+		document.querySelector('.menuContainer')?.style.setProperty('--vh', `${vh}px`);
 		window.addEventListener('resize', () => {
 			let vh = window.innerHeight * 0.01;
-			document.documentElement.style.setProperty('--vh', `${vh}px`);
+			document.querySelector('.menuContainer')?.style.setProperty('--vh', `${vh}px`);
 		});
 		document.querySelector('html')?.classList.add('overflow-hidden');
 	}
 </script>
 
-<!-- {#if ready} -->
+<svelte:window on:resize={() => (vh = window.innerHeight * 0.01)} />
 <div
+	style={`--vh: ${vh}px`}
 	class={`menuContainer 3xl:container flex fixed top-0 left-0 flex-col w-screen h-screen h-[calc(100dvh)] overscroll-contain bg-black/70 z-[60] overflow-x-hidden`}
 >
 	<div
@@ -46,9 +45,6 @@
 		<MenuLinkItem link={links[4]} i={4} />
 	</ul>
 </div>
-
-<!-- {/if} -->
-
 <style>
 	.menuContainer {
 		height: calc(var(--vh, 1vh) * 100);
