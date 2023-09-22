@@ -9,16 +9,27 @@
 	import MenuInModal from '../lib/components/MenuInModal.svelte';
 	import { menuToggle } from '$lib/utils/store';
 	import { links } from '$lib/utils/utils';
+	import { onMount } from 'svelte';
+
 
 	$: isHome = $page.url.pathname === '/';
 	$: isAbout = $page.url.pathname === '/about';
-
 	$: shouldBeHidden = isHome;
 	$: hideContactButton = isAbout || isHome;
 
 	const colorsArr = ['text-red-400', 'text-indigo-400', 'text-green-400'];
-</script>
 
+	onMount(() => {
+    setVh();
+  });
+
+const setVh = () => {
+	const vh = window.innerHeight * 0.01;
+	document.documentElement.style.setProperty('--vh', `${vh}px`);
+	return vh;
+};
+</script>
+<svelte:window on:resize={setVh} />
 <header class="relative">
 	<nav>
 		<ul

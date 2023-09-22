@@ -5,6 +5,7 @@ import { quintInOut } from 'svelte/easing';
 import ContactButton from '$lib/components/ContactButton.svelte';
 import SceneDefault from '$lib/components/SceneDefault.svelte';
 import WhiteBorder from '$lib/components/WhiteBorder.svelte';
+import {onMount} from 'svelte';
 let windowWidth = 0;
 let sTop;
 let inverseScrollPercentage;
@@ -14,18 +15,27 @@ let scrollElement;
 const colorsArr = ['text-red-400', 'text-indigo-400', 'text-green-400'];
 const navItems = ['clients', 'blog', 'social'];
 	
- const onScroll = () => {
-	sTop = scrollElement.scrollTop;
-	inverseScrollPercentage = (scrollElement.clientHeight - scrollElement.scrollTop) / scrollElement.clientHeight;
-	scrollPercentage = 1 - (scrollElement.clientHeight - scrollElement.scrollTop) / scrollElement.clientHeight;
- }
+const onScroll = () => {
+sTop = scrollElement.scrollTop;
+inverseScrollPercentage = (scrollElement.clientHeight - scrollElement.scrollTop) / scrollElement.clientHeight;
+scrollPercentage = 1 - (scrollElement.clientHeight - scrollElement.scrollTop) / scrollElement.clientHeight;
+}
+
+onMount(() => setVh());
+	
+const setVh = () => {
+	const vh = window.innerHeight * 0.01;
+	document.documentElement.style.setProperty('--vh', `${vh}px`);
+	return vh;
+};
+
 </script>
-<svelte:window bind:innerWidth={windowWidth} />
+<svelte:window bind:innerWidth={windowWidth} on:resize={setVh}/>
 <h1 class="hidden">Home</h1>
 <div
-	class="overflow-hidden overscroll-none fixed top-1/2 left-1/2 px-4 pt-6 pb-10 w-screen bg-white -translate-x-1/2 -translate-y-1/2 sm:p-10 xl:pt-12 3xl:container 3xl:mx-auto dark:bg-black h-[100dvh]"
+	class="fixed w-screen px-4 pt-6 pb-10 overflow-hidden -translate-x-1/2 -translate-y-1/2 bg-white element-100dvh overscroll-none top-1/2 left-1/2 sm:p-10 xl:pt-12 3xl:container 3xl:mx-auto dark:bg-black"
 >
-	<div class="w-full h-full overflow-hidden bg-gray-500 overscroll-none">
+	<div class="w-full overflow-hidden bg-gray-500 element-100dvh overscroll-none">
 		<Canvas>
 			<SceneDefault />
 		</Canvas>
@@ -36,13 +46,13 @@ const navItems = ['clients', 'blog', 'social'];
 	id="scrollArea"
 	bind:this={scrollElement}
 	on:scroll={onScroll}
-	class="h-[100dvh] fixed overflow-x-hidden overflow-y-scroll bg-transparent overscroll-none 3xl:container 3xl:mx-auto snap-y snap-mandatory"
+	class="fixed overflow-x-hidden overflow-y-scroll bg-transparent element-100dvh overscroll-none 3xl:container 3xl:mx-auto snap-y snap-mandatory"
 >
 	<div class="return-home" />
 	<div
-		class="snap-end flex flex-col justify-end w-screen transition-opacity sm:flex-row sm:justify-between sm:items-end sm:p-20 3xl:container 3xl:mx-auto sm:h-[100dvh]"
+		class="flex flex-col justify-end w-screen transition-opacity snap-end sm:flex-row sm:justify-between sm:items-end sm:p-20 3xl:container 3xl:mx-auto"
 	>
-		<div class="flex flex-col justify-end sm:h-auto h-screen h-[100dvh] snap-end sm:snap-none">
+		<div class="flex flex-col justify-end element-100dvh sm:h-auto snap-end sm:snap-none">
 			<p
 				style:transform={`translate(-${sTop * 0.7 * 10}px, ${sTop}px)`}
 				class={`will-change-scroll z-40 text-red-400 home-main-text text-5xl sm:text-7xl sm:max-w-80 mx-6 sm:mx-4 scroll-mb-4 md:max-w-[40rem] font-bold mb-4 sm:mb-0 5xl:text-8xl`}
@@ -59,7 +69,7 @@ const navItems = ['clients', 'blog', 'social'];
 			>
 		</div>
 		<div
-			class={`h-screen h-[100dvh] snap-end sm:snap-none sm:visible sm:h-auto text-2xl flex flex-col justify-end sm:w-1/2 sm:bottom-20 sm:right-20 text-center sm:text-right pb-8 sm:pb-0 scroll-pb-15 scroll-mb-15 sm:mb-0`}
+			class={`h-full snap-end sm:snap-none sm:visible sm:h-auto text-2xl flex flex-col justify-end sm:w-1/2 sm:bottom-20 sm:right-20 text-center sm:text-right pb-8 sm:pb-0 scroll-pb-15 scroll-mb-15 sm:mb-0`}
 		>
 		
 		<p
@@ -83,7 +93,7 @@ const navItems = ['clients', 'blog', 'social'];
 			</div>
 		</div>
 	</div>
-	<div class="hidden items-end w-screen sm:flex 3xl:container 3xl:mx-auto h-[100dvh]">
+	<div class="items-end hidden w-screen sm:flex 3xl:container 3xl:mx-auto element-100dvh">
 		<div class="z-50" />
 		<ul
 			out:fly={{ y: 600, duration: 500 }}
@@ -103,3 +113,9 @@ const navItems = ['clients', 'blog', 'social'];
 		</ul>
 	</div>
 </div>
+<style>
+  .element-100dvh {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+  }
+</style>
