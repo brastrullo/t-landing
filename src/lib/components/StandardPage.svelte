@@ -11,6 +11,7 @@
   export let href = ''
   export let mainText = ''
   export let subText = ''
+  export let disabled = null
 </script>
 <div class="w-screen overflow-y-scroll element-100dvh 2xl:svg-bg-light 2xl:dark:svg-bg-dark">
   <div class="absolute top-0 left-0 flex flex-col justify-between w-screen h-full overflow-x-hidden bg-white overscroll-contain sm:overflow-y-hidden dark:bg-black 3xl:x-center">
@@ -39,11 +40,19 @@
             rel="noreferrer"
             {href}
             target="_blank"
+            class:disabled={disabled}
             class={`inline-block w-[calc(100%-2rem)] sm:w-60 text-center mx-4 my-4 px-6 py-4 border border-transparent font-medium bg-indigo-400 text-indigo-600 hover:bg-transparent hover:border-indigo-400  hover:text-indigo-400`}
-            >VISIT SITE</a
+            >{`${disabled ? 'COMING SOON':'VISIT SITE'}`}</a
           >
         </div>
       </section>
     {/if}
   </div>
 </div>
+<style>
+  .disabled {
+    background-color: lightgray;
+    color: darkgray;
+    pointer-events: none;
+  }
+</style>

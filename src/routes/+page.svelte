@@ -42,7 +42,7 @@ const setVh = () => {
 		</Canvas>
 	</div>
 </div>
-<div class="fixed top-0 right-0 z-[999] w-1 element-100dvh hidden sm:block">
+<div class="fixed top-0 right-0 z-50 hidden w-1 element-100dvh sm:inline">
 	<div style:height={sTop ? `${sTop}px`: '0px'} class={`relative top-0 right-0 bg-red-400 w-1`}/>
 </div>
 <WhiteBorder />
