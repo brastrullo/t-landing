@@ -28,7 +28,7 @@
 					in:fly={{ y: 1000, easing: quintInOut, duration: 550 }}
 					out:fade
 				>
-				<span class="inline-block my-4 font-serif text-sm italic">Welcome to v1.0 of my custom portfolio site I use as an experimental coding playground dabble in current technologies.</span>
+				<span class="inline-block my-4 font-serif text-sm italic">Welcome to v1.0 of my custom landing website which I use as an experimental coding playground to dabble in current technologies.</span>
 				I'm Brad a full stack web developer from Toronto, Canada, specializing in the
 					Frontend with over 7 years of experience. I got my start in the industry by landing a junior
 					position after <a
