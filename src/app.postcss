@@ -40,11 +40,17 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  height: -webkit-fill-available;
+}
+
 html, body {
   @apply overscroll-none svg-bg-light bg-fixed overflow-hidden;
 }
 
 body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
   @apply overflow-hidden;
 }
 

@@ -45,7 +45,7 @@ const navItems = ['clients', 'blog', 'social'];
 		<div class="flex flex-col justify-end sm:h-auto h-screen h-[100dvh] snap-end sm:snap-none">
 			<p
 				style:transform={`translate(-${sTop * 0.7 * 10}px, ${sTop}px)`}
-				class={`will-change-scroll z-40 text-red-400 home-main-text text-5xl sm:text-7xl sm:max-w-80 mx-6 sm:mx-4 md:max-w-[40rem] font-bold mb-4 sm:mb-0 5xl:text-8xl`}
+				class={`will-change-scroll z-40 text-red-400 home-main-text text-5xl sm:text-7xl sm:max-w-80 mx-6 sm:mx-4 scroll-mb-4 md:max-w-[40rem] font-bold mb-4 sm:mb-0 5xl:text-8xl`}
 				in:fade
 				out:fly={{ y: 300, duration: 250, easing: quintInOut }}
 			>
@@ -53,7 +53,7 @@ const navItems = ['clients', 'blog', 'social'];
 			</p>
 			<span
 				style:transform={`translate(0px, ${sTop}px)`}
-				style:opacity={`${inverseScrollPercentage * .25}`}
+				style:opacity={`${inverseScrollPercentage}`}
 				class={`mb-12 animate-bounce sm:visible pb-1 sm:hidden text-center text-xs font-extralight opacity-60 z-50`}
 				>scroll down</span
 			>
@@ -103,3 +103,10 @@ const navItems = ['clients', 'blog', 'social'];
 		</ul>
 	</div>
 </div>
+
+<style lang="postcss">
+	#scrollArea {
+		height: -webkit-fill-available;
+		min-height: -webkit-fill-available;
+	}
+</style>

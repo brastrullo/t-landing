@@ -13,7 +13,7 @@
   export let subText = ''
 </script>
 
-<div class="w-screen h-screen h-[100dvh] 2xl:svg-bg-light 2xl:dark:svg-bg-dark overflow-y-scroll">
+<div class="pageContainer w-screen h-screen h-[100dvh] 2xl:svg-bg-light 2xl:dark:svg-bg-dark overflow-y-scroll">
   <div class="flex overflow-x-hidden overscroll-contain absolute top-0 left-0 flex-col justify-between w-screen h-screen bg-white sm:overflow-y-hidden dark:bg-black h-[100dvh] 3xl:x-center">
     {#if ready}
     <h2 transition:fade class="right-0 z-30 block pt-12 my-auto ml-16 mr-4 font-serif text-3xl italic text-right sm:ml-24 sm:w-1/2 sm:text-4xl sm:text-left sm:max-w-1/2">{subText}</h2>
@@ -48,3 +48,10 @@
     {/if}
   </div>
 </div>
+
+<style>
+  .pageContainer {
+    min-height: -webkit-fill-available;
+    max-height: -webkit-fill-available;
+  }
+</style>
