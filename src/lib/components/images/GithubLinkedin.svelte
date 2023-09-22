@@ -10,7 +10,7 @@
 </script>
 
 <div
-	class="flex justify-center mt-8 mb-1 font-thin border-b md:justify-end links border-inherit 5xl:text-2xl"
+	class="flex justify-center mt-8 mb-1 font-thin border-b md:justify-end 5xl:text-2xl links border-inherit"
 	in:fly={{ x: -300, delay: 300, duration: 500 }}
 	out:fade
 >

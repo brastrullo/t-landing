@@ -19,7 +19,7 @@
     class={`transition h-full hover:scale-125 flex w-full relative`}
     href={link.href}
     on:click={closeModal}
-    ><span class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+    ><span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       >{link.name}</span
     ></a
   >

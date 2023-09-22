@@ -2,6 +2,7 @@
 	import { fade } from 'svelte/transition'
 	import VerticalTitleHeader from './VerticalTitleHeader.svelte'
   import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 
   let ready = false;
   onMount(() => ready = true);
@@ -12,15 +13,17 @@
   export let subText = ''
 </script>
 
-<VerticalTitleHeader {title} />
 <div class="w-screen h-screen h-[100dvh] 2xl:svg-bg-light 2xl:dark:svg-bg-dark">
-  <div class="absolute top-0 left-0 flex flex-col justify-between w-screen h-screen h-[100dvh] overflow-x-hidden bg-white overscroll-contain sm:overflow-y-hidden dark:bg-black 3xl:x-center">
+  <div class="flex overflow-x-hidden overscroll-contain absolute top-0 left-0 flex-col justify-between w-screen h-screen bg-white sm:overflow-y-hidden dark:bg-black h-[100dvh] 3xl:x-center">
     {#if ready}
-      <h2 transition:fade class="right-0 z-30 block pt-12 my-auto ml-16 mr-4 font-serif text-3xl italic text-right sm:ml-24 sm:w-1/2 sm:text-4xl sm:text-left sm:max-w-1/2">{subText}</h2>
-      <section
-        class="flex flex-col items-center justify-end sm:flex-row sm:justify-center md:justify-start"
-      >
-        <div class="overscroll-contain overflow-y-hidden sm:overflow-auto ml-10 opacity-20 dark:opacity-30 transition absolute top-[10vh] -left-10 md:left-1/3 xl:left-1/2 3xl:left-1/2 w-[130vw] max-h-[90vh] overflow-x-hidden">
+    <h2 transition:fade class="right-0 z-30 block pt-12 my-auto ml-16 mr-4 font-serif text-3xl italic text-right sm:ml-24 sm:w-1/2 sm:text-4xl sm:text-left sm:max-w-1/2">{subText}</h2>
+    <section
+    class="flex flex-col items-center justify-end sm:flex-row sm:justify-center md:justify-start"
+    >
+    {#key $page.url.pathname}
+      <VerticalTitleHeader {title} />
+    {/key}
+        <div class="overflow-x-hidden overflow-y-hidden overscroll-contain absolute -left-10 ml-10 opacity-20 transition sm:overflow-auto md:left-1/3 xl:left-1/2 3xl:left-1/2 dark:opacity-30 top-[10vh] w-[130vw] max-h-[90vh]">
           <div
             transition:fade
             class="bg-white dark:bg-black"

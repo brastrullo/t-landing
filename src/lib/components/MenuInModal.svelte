@@ -11,8 +11,7 @@
 	let ready = false;
 	onMount(() => (ready = true));
 
-	let windowHeight = 0;
-	let vh = 0;
+	let vh;
 
 if (browser) {
 	vh = window.innerHeight * 0.01;
@@ -26,8 +25,7 @@ if (browser) {
 </script>
 
 <!-- {#if ready} -->
-<svelte:window bind:innerHeight={windowHeight} />
-<div style={`--vh:${vh}px`} class={`container flex fixed top-0 left-0 flex-col w-screen h-screen h-[calc(100dvh)] overscroll-contain bg-black/70 z-[60]`}>
+<div class={`3xl:container flex fixed top-0 left-0 flex-col w-screen h-screen h-[calc(100dvh)] overscroll-contain bg-black/70 z-[60]`}>
 		<div
 			transition:fly={{ easing: quintInOut, y: -150, duration: 250 }}
 			class="flex justify-between bg-white border-b dark:bg-black border-black/10 h-[4rem] dark:border-white/10"
@@ -52,8 +50,7 @@ if (browser) {
 	<!-- {/if} -->
 
 	<style>
-		.container {
+		.menuContainer {
 			height: calc(var(--vh, 1vh) * 100);
 		}
-
 	</style>

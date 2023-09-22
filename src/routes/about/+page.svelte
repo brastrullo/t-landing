@@ -1,6 +1,5 @@
 <script>
 	import ContactButton from '$lib/components/ContactButton.svelte';
-	import { page } from '$app/stores';
 	import { fly, fade } from 'svelte/transition';
 	import { quintInOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
@@ -9,8 +8,6 @@
 	import GithubLinkedin from '$lib/components/images/GithubLinkedin.svelte';
 	// import About from '$lib/components/images/about.svelte';
 
-	const imgSrc = 'https://picsum.photos/seed/picsum/2000/1200.webp?w=1&p=1&blur=10';
-	const lqoipSrc = 'https://picsum.photos/seed/picsum/2000/1200.webp?w=1&p=1&blur=10&lqip';
 
 	const title = 'ABOUT';
 
@@ -19,9 +16,9 @@
 </script>
 
 <div class="w-screen h-screen 2xl:svg-bg-light 2xl:dark:svg-bg-dark">
-	<div class="h-[calc(100vh-.5rem)] w-screen relative top-0 left-0 z-0 bg-white dark:bg-black overscroll-contain md:overflow-hidden 3xl:container 3xl:mx-auto">
+	<div class="h-[100dvh] w-screen relative top-0 left-0 z-0 bg-white dark:bg-black overscroll-contain md:overflow-hidden 3xl:container 3xl:mx-auto">
 		<section
-		class="flex flex-col-reverse justify-between mt-8 3xl:container 3xl:mx-auto sm:justify-start sm:items-end sm:pb-20 lg:mx-4 sm:h-full md:flex-row md:flex-nowrap md:pb-0 md:my-auto md:ml-20"
+		class="flex flex-col-reverse justify-between mt-8 sm:justify-start sm:items-end sm:pb-20 sm:h-full md:flex-row md:flex-nowrap md:pb-0 md:my-auto md:ml-20 lg:mx-4 3xl:container 3xl:mx-auto"
 		>
 		{#key title}
 			<VerticalTitleHeader {title} />
@@ -29,7 +26,7 @@
 			<div class="relative z-50 lg:static lg:z-auto flex flex-col mb-8 sm:mb-4 sm:w-auto xl:text-lg 5xl:text-xl 3xl:w-full 3xl:pl-[20%] lg:w-1/2 md:pl-10 lg:pl-20 md:my-auto md:mr-8 bg-white/80 dark:bg-black/80">
 				<GithubLinkedin />
 				<p
-					class="inline-block px-8 md:p-0 sm:mt-0 sm:mb-8 max-h-auto sm:h-min sm:max-h-[30rem] sm:max-h-auto md:max-w-[30rem] xl:max-w-none md:first-letter:text-8xl md:first-letter:font-bold first-letter:text-5xl first-letter:font-black"
+					class="inline-block px-8 sm:mt-0 sm:mb-8 md:p-0 xl:max-w-none max-h-auto sm:h-min sm:max-h-[30rem] sm:max-h-auto md:max-w-[30rem] md:first-letter:text-8xl md:first-letter:font-bold first-letter:text-5xl first-letter:font-black"
 					in:fly={{ y: 1000, easing: quintInOut, duration: 550 }}
 					out:fade
 				>
@@ -69,10 +66,10 @@
 				</div>
 			</div>
 			<div
-				class="flex overscroll-contain overflow-hidden my-auto sm:ml-0 sm:w-full md:mx-auto md:max-h-full max-h-[50vh] lg:max-w-[50vw]"
+				class="flex overflow-hidden overscroll-contain my-auto sm:ml-0 sm:w-full md:mx-auto md:max-h-full max-h-[50vh] lg:max-w-[50vw]"
 			>
 				<div
-					class="object-cover overscroll-contain overflow-hidden mx-auto bg-white bg-cover opacity-70 sm:w-full dark:bg-black dark:opacity-50 w-[130vw]"
+					class="object-cover overflow-hidden overscroll-contain mx-auto bg-white bg-cover opacity-70 sm:w-full dark:bg-black dark:opacity-50 w-[130vw]"
 				>
 					<AboutBGSvg />
 				</div>
