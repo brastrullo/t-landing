@@ -103,10 +103,3 @@ const navItems = ['clients', 'blog', 'social'];
 		</ul>
 	</div>
 </div>
-
-<style lang="postcss">
-	#scrollArea {
-		height: -webkit-fill-available;
-		min-height: -webkit-fill-available;
-	}
-</style>

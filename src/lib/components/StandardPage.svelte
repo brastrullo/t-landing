@@ -48,10 +48,3 @@
     {/if}
   </div>
 </div>
-
-<style>
-  .pageContainer {
-    min-height: -webkit-fill-available;
-    max-height: -webkit-fill-available;
-  }
-</style>
