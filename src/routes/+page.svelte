@@ -5,13 +5,19 @@ import { quintInOut } from 'svelte/easing';
 import ContactButton from '$lib/components/ContactButton.svelte';
 import SceneDefault from '$lib/components/SceneDefault.svelte';
 import WhiteBorder from '$lib/components/WhiteBorder.svelte';
-import Scrolldown from '$lib/components/images/scrolldown.svelte';
+import Scrolldown from '$lib/components/images/Scrolldown.svelte';
+import { browser } from '$app/environment';
+import Llo from '$lib/components/images/llo.svelte';
 import {onMount} from 'svelte';
 let windowWidth = 0;
+let windowHeight = 0;
 let sTop;
 let inverseScrollPercentage;
 let scrollPercentage;
 let scrollElement;
+let shouldShowScrollDown;
+
+let ready = false;
 	
 const colorsArr = ['text-red-400', 'text-indigo-400', 'text-green-400'];
 const navItems = ['clients', 'blog', 'social'];
@@ -20,18 +26,30 @@ const onScroll = () => {
 sTop = scrollElement.scrollTop;
 inverseScrollPercentage = (scrollElement.clientHeight - scrollElement.scrollTop) / scrollElement.clientHeight;
 scrollPercentage = 1 - (scrollElement.clientHeight - scrollElement.scrollTop) / scrollElement.clientHeight;
+shouldShowScrollDown = sTop > windowHeight*.4;
 }
 
-onMount(() => setVh());
+onMount(() => {
+	setVh()
+	console.log(sessionStorage.getItem('theme'))
+	ready = true
+});
 	
 const setVh = () => {
 	const vh = window.innerHeight * 0.01;
+	windowHeight = window.innerHeight;
 	document.documentElement.style.setProperty('--vh', `${vh}px`);
 	return vh;
 };
 
 </script>
+{#key ready}
+	<div class:hidden={ready} transition:fade class="z-[99999] flex m-auto element-100dvh w-screen fixed top-0 left-0 pointer-events-none bg-white dark:bg-black">
+		<Llo classNames={'m-auto text-9xl opacity-25'}/>
+	</div>
+{/key}
 <svelte:window bind:innerWidth={windowWidth} on:resize={setVh}/>
+{#if ready}
 <h1 class="hidden">Home</h1>
 <div
 	class="fixed w-screen px-4 pt-6 pb-10 overflow-hidden -translate-x-1/2 -translate-y-1/2 bg-white element-100dvh overscroll-none top-1/2 left-1/2 sm:p-10 xl:pt-12 3xl:container 3xl:mx-auto dark:bg-black"
@@ -42,8 +60,8 @@ const setVh = () => {
 		</Canvas>
 	</div>
 </div>
-<div class="fixed top-0 right-0 z-50 hidden element-100dvh sm:inline">
-	<div style:height={sTop ? `${sTop}px`: '0px'} class={`relative top-0 right-0 bg-red-400 sm:w-2`}/>
+<div class="fixed top-0 left-0 z-50 hidden element-100dvh sm:inline">
+	<div style:height={sTop ? `${sTop}px`: '0px'} class={`relative top-0 right-0 sm:w-2 bg-gradient-to-b from-red-400 via-indigo-200 to-green-200 dark:from-red-900 dark:via-indigo-800 dark:to-green-600`}/>
 </div>
 <WhiteBorder />
 <div
@@ -52,20 +70,22 @@ const setVh = () => {
 	on:scroll={onScroll}
 	class="fixed overflow-x-hidden overflow-y-scroll bg-transparent element-100dvh overscroll-none 3xl:container 3xl:mx-auto snap-y snap-mandatory"
 >
-	<div class="return-home snap-start sm:snap-align-end" />
+	<div id="x" class="return-home snap-start sm:snap-align-end" />
 	<div
 		class="flex flex-col justify-end w-screen transition-opacity sm:flex-row sm:justify-between sm:items-end sm:p-20 3xl:container 3xl:mx-auto snap-end sm:snap-align-none"
 	>
 		<div class="flex flex-col justify-end element-100dvh">
 			<p
 				style:transform={`translate(-${sTop * 0.7 * 10}px, ${sTop}px)`}
-				class={`will-change-scroll z-40 text-red-400 home-main-text text-5xl sm:text-7xl sm:max-w-80 mx-6 sm:mx-4 scroll-mb-12 md:max-w-[40rem] font-bold mb-12 sm:mb-36 sm:scroll-mb-36 md:scroll-mb-0 5xl:text-8xl`}
+				class={`will-change-scroll z-40 text-red-400 home-main-text text-5xl sm:text-7xl sm:max-w-80 mx-6 sm:mx-4 scroll-mb-20 md:max-w-[40rem] font-bold mb-20 sm:mb-36 sm:scroll-mb-36 md:scroll-mb-0 5xl:text-8xl`}
 				in:fade
 				out:fly={{ y: 300, duration: 250, easing: quintInOut }}
 			>
 				"I create UI, Motion Graphics and anything we can imagine.
 			</p>
-			<!-- <Scrolldown /> -->
+			<div style:opacity={inverseScrollPercentage} class:invisible={shouldShowScrollDown}>
+				<Scrolldown />
+			</div>
 		</div>
 		<div
 			class={`h-full sm:visible sm:h-auto text-2xl flex flex-col justify-end sm:w-1/2 sm:bottom-20 sm:right-20 text-center sm:text-right pb-8 sm:pb-0 scroll-pb-15 scroll-mb-15 sm:mb-32 sm:scroll-mb-32 md:scroll-mb-0`}
@@ -87,7 +107,7 @@ const setVh = () => {
 			>
 				<ContactButton
 					wrapperClassNames="my-[1.25rem]"
-					classNames="home-cta font-bold transition drop-shadow 5xl:text-3xl text-indigo-900  mix-blend-screen border border-transparent py-6 sm:py-6 px-[calc(50%-4.5rem)] sm:px-8 md:px-14 lg:px-20 bg-indigo-300 dark:bg-indigo-300 dark:text-indigo-800 hover:text-indigo-300 hover:bg-transparent hover:border-indigo-300 dark:hover:text-indigo-300 dark:hover:bg-transparent dark:hover:border-indigo-300"
+					classNames="home-cta font-bold transition drop-shadow 5xl:text-3xl text-indigo-900  mix-blend-screen border border-transparent py-6 sm:py-6 px-[calc(50%-4.5rem)] sm:px-8 md:px-14 lg:px-20 bg-indigo-300 hover:text-green-300 hover:bg-transparent hover:border-green-300"
 				/>
 			</div>
 		</div>
@@ -112,6 +132,7 @@ const setVh = () => {
 		</ul>
 	</div>
 </div>
+{/if}
 <style>
   .element-100dvh {
     height: 100vh;

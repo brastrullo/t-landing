@@ -11,6 +11,7 @@
 	import { links } from '$lib/utils/utils';
 	import { onMount } from 'svelte';
 
+	let ready = false;
 
 	$: isHome = $page.url.pathname === '/';
 	$: isAbout = $page.url.pathname === '/about';
@@ -21,6 +22,7 @@
 
 	onMount(() => {
     setVh();
+		ready = true
   });
 
 const setVh = () => {
@@ -30,13 +32,14 @@ const setVh = () => {
 };
 </script>
 <svelte:window on:resize={setVh} />
+{#if ready}
 <header class="relative">
 	<nav>
 		<ul
 			class="fixed top-0 left-0 z-50 flex items-center justify-between w-full h-6 px-6 bg-gradient-to-b from-white sm:px-12 sm:h-12 xl:h-12 xl:text-xl dark:from-black via-white/90 3xl:x-center-fixed dark:via-black/90"
 		>
 			<li>
-				<a href="/" class="w-2/3 font-extralight dark:text-white">bradleyrastru<Llo /></a>
+				<a href="/#home" on:click={()=> window.scrollTo(0,0)} class="w-2/3 font-extralight dark:text-white">bradleyrastru<Llo /></a>
 			</li>
 			<li class="flex justify-end w-1/3 space-x-6">
 				{#if !$menuToggle}
@@ -75,6 +78,7 @@ const setVh = () => {
 		</div>
 	</nav>
 </header>
+{/if}
 {#if $menuToggle}
 	<MenuInModal />
 {/if}

@@ -41,7 +41,7 @@
             {href}
             target="_blank"
             class:disabled={disabled}
-            class={`inline-block w-[calc(100%-2rem)] sm:w-60 text-center mx-4 my-4 px-6 py-4 border border-transparent font-medium bg-indigo-400 text-indigo-600 hover:bg-transparent hover:border-indigo-400  hover:text-indigo-400`}
+            class={`inline-block w-[calc(100%-2rem)] sm:w-60 text-center mx-4 my-4 px-6 py-4 border border-transparent font-medium bg-red-400 text-red-600 hover:bg-transparent hover:border-green-400  hover:text-green-400`}
             >{`${disabled ? 'COMING SOON':'VISIT SITE'}`}</a
           >
         </div>
