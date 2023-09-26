@@ -5,7 +5,7 @@
 	import { quintInOut } from 'svelte/easing';
 	import ToggleButton from '$lib/components/ToggleButton.svelte';
 	import ContactButtonSmall from '$lib/components/ContactButtonSmall.svelte';
-	import Llo from '$lib/components/images/llo.svelte';
+	import Llo from '$lib/images/llo.svelte';
 	import MenuInModal from '../lib/components/MenuInModal.svelte';
 	import { menuToggle } from '$lib/utils/store';
 	import { links } from '$lib/utils/utils';
@@ -18,7 +18,7 @@
 	$: shouldBeHidden = isHome;
 	$: hideContactButton = isAbout || isHome;
 
-	const colorsArr = ['text-red-400', 'text-indigo-400', 'text-green-400'];
+	// const colorsArr = ['text-red-400', 'text-indigo-400', 'text-green-400'];
 
 	onMount(() => {
     setVh();

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { fade } from 'svelte/transition'
 	import VerticalTitleHeader from './VerticalTitleHeader.svelte'
   import { onMount } from 'svelte';
@@ -11,14 +11,14 @@
   export let href = ''
   export let mainText = ''
   export let subText = ''
-  export let disabled = null
+  export let disabled: boolean | undefined = false
 </script>
 <div class="w-screen overflow-y-scroll element-100dvh 2xl:svg-bg-light 2xl:dark:svg-bg-dark">
   <div class="absolute top-0 left-0 flex flex-col justify-between w-screen h-full overflow-x-hidden bg-white overscroll-contain sm:overflow-y-hidden dark:bg-black 3xl:x-center">
     {#if ready}
     <h2 transition:fade class="right-0 z-30 block pt-12 my-auto ml-16 mr-4 font-serif text-3xl italic text-right sm:ml-24 sm:w-1/2 sm:text-4xl sm:text-left sm:max-w-1/2">{subText}</h2>
     <section
-    class="flex flex-col items-center justify-end sm:flex-row sm:justify-center md:justify-start"
+      class="flex flex-col items-center justify-end sm:flex-row sm:justify-center md:justify-start"
     >
     {#key $page.url.pathname}
       <VerticalTitleHeader {title} />

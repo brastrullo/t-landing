@@ -1,7 +1,7 @@
 <script>
-	import { darkMode, toggleState } from '../utils/store'
-	import Sun from '$lib/components/images/sun.svelte'
-	import Moon from '$lib/components/images/moon.svelte'
+	import { darkMode, toggleState } from '$lib/utils/store'
+	import Sun from '$lib/images/sun.svelte'
+	import Moon from '$lib/images/moon.svelte'
 	export let classNames = ''
 </script>
 

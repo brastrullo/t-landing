@@ -1,7 +1,5 @@
 <script>
-	import ContactButton from '$lib/components/ContactButton.svelte';
 	import { fly, fade } from 'svelte/transition';
-	import { quintInOut } from 'svelte/easing';
 
 	const links = [
 		{ name: 'github', url: 'https://github.com/brastrullo' },

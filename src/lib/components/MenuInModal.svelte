@@ -1,12 +1,11 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 	import { quintInOut } from 'svelte/easing';
-	import ToggleButton from './ToggleButton.svelte';
-	import Llo from './images/llo.svelte';
-	import { onMount } from 'svelte';
+	import ToggleButton from '$lib/components/ToggleButton.svelte';
+	import Llo from '$lib/images/llo.svelte';
 	import { closeModal } from '$lib/utils/store';
 	import { links } from '$lib/utils/utils';
-	import MenuLinkItem from './MenuLinkItem.svelte';
+	import MenuLinkItem from '$lib/components/MenuLinkItem.svelte';
 	import { browser } from '$app/environment';
 
 	if (browser) {

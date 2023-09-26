@@ -1,5 +1,5 @@
 <script>
-	import Chevron from '$lib/components/images/chevron.svelte';
+	import Chevron from '$lib/images/chevron.svelte';
 	export const className = ''
 </script>
 <span class="z-50 absolute bottom-14 left-1/2 -translate-x-1/2 m-auto animate-pulse text-indigo-300 text-xs">scroll</span>

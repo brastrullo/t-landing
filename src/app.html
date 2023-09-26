@@ -10,9 +10,13 @@
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 	<script>
-		let darkInitState;
-		const themeState = sessionStorage.getItem("theme");
-		darkInitState = themeState ? themeState === "dark" : window.matchMedia('(prefers-color-scheme: dark)').matches
-		darkInitState ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark')
+		const themeState = sessionStorage.getItem("theme")
+		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+		if (themeState === undefined) {
+			sessionStorage.setItem("theme", prefersDark ? 'dark' : 'light')
+			prefersDark ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark')
+		} else {
+			themeState === 'dark' ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark')
+		}
 	</script>
 </html>
