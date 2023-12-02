@@ -19,6 +19,7 @@
 	let shouldShowScrollDown;
 
 	let ready = false;
+	let ready2 = false;
 
 	const colorsArr = ['text-red-400', 'text-indigo-400', 'text-green-400'];
 	const navItems = ['clients', 'blog', 'social'];
@@ -45,21 +46,19 @@
 	};
 </script>
 
-{#key ready}
-	<div
-		class:dark={$darkMode}
-		class:hidden={ready}
-		transition:fade={{ duration: 250 }}
-		class="z-[99999] flex m-auto element-100dvh w-screen fixed top-0 left-0 pointer-events-none bg-white dark:bg-black"
-	>
-		<Llo classNames={'m-auto text-9xl opacity-25'} />
-	</div>
-{/key}
 <svelte:window bind:innerWidth={windowWidth} on:resize={setVh} />
 {#if ready}
 	<h1 class="hidden">Home</h1>
 
-	{#await importThrelteCanvas() then module}
+	{#await importThrelteCanvas()}
+		<div
+			class:dark={$darkMode}
+			out:fade={{ duration: 250 }}
+			class="flex m-auto element-100dvh w-screen fixed top-0 left-0 pointer-events-none"
+		>
+			<Llo classNames={'m-auto text-[20rem]'} />
+		</div>
+	{:then module}
 		<svelte:component this={module.default}/>
 	{/await}
 
@@ -98,7 +97,7 @@
 				<!-- <Scrolldown /> -->
 			</div>
 			<div
-				class={`element-100dvh sm:visible sm:h-auto text-2xl flex flex-col justify-end sm:w-1/2 sm:bottom-20 sm:right-20 text-center sm:text-right pb-8 sm:pb-0 scroll-pb-15 scroll-mb-15 sm:mb-32 sm:scroll-mb-32 md:scroll-mb-0`}
+				class={`element-100dvh sm:hidden sm:h-auto text-2xl flex flex-col justify-end sm:w-1/2 sm:bottom-20 sm:right-20 text-center sm:text-right pb-8 sm:pb-0 scroll-pb-15 scroll-mb-15 sm:mb-32 sm:scroll-mb-32 md:scroll-mb-0`}
 			>
 				<p
 					class="will-change-scroll z-40 home-sub-text 5xl:text-4xl mb-[calc(25vh)] text-green-300 px-6 sm:px-0 sm:mb-4 sm:pl-4 font-light drop-shadow-2xl sm:bg-none"

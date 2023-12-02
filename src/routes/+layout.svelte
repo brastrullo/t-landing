@@ -18,7 +18,8 @@
 	$: isClients = $page.url.pathname === '/clients';
 	$: isSocial = $page.url.pathname === '/social';
 	$: shouldBeHidden = isHome;
-	$: hideContactButton = isAbout || isHome;
+	// $: hideContactButton = isAbout || isHome;
+	$: hideContactButton = isAbout;
 
 	// const colorsArr = ['text-red-400', 'text-indigo-400', 'text-green-400'];
 
