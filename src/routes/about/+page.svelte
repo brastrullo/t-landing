@@ -37,7 +37,7 @@
 						playground to dabble in current technologies.</span
 					>
 					I'm Brad a full stack web developer from Toronto, Canada, specializing in the Frontend with
-					over 7 years of experience. I got my start in the industry by landing a junior position after
+					over 5 years of experience. I got my start in the industry by landing a junior position after
 					<a
 						class="link disabled"
 						title="Article coming soon..."
@@ -59,7 +59,7 @@
 						href="https://brd.rs"
 						rel="noreferrer"
 						target="_blank">brd.rs</a
-					>.
+					> which is under-construction at the moment.
 				</p>
 				<div
 					in:fly={{ delay: 150, y: 300, easing: quintInOut, duration: 550 }}

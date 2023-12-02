@@ -15,6 +15,8 @@
 
 	$: isHome = $page.url.pathname === '/';
 	$: isAbout = $page.url.pathname === '/about';
+	$: isClients = $page.url.pathname === '/clients';
+	$: isSocial = $page.url.pathname === '/social';
 	$: shouldBeHidden = isHome;
 	$: hideContactButton = isAbout || isHome;
 
@@ -52,16 +54,23 @@ const setVh = () => {
 				{/if}
 				<ul class="items-center justify-end hidden space-x-6 md:flex">
 					<li class:hidden={hideContactButton}><ContactButtonSmall /></li>
-					<li class:hidden={isAbout} class="font-semibold hover:underline underline-offset-4">
+					<li class:underline={isAbout} class:text-red-500={isAbout} class="font-semibold hover:underline underline-offset-4">
 						<a href="/about">about</a>
 					</li>
+					<li class:hidden={isHome} class:underline={isClients} class:text-indigo-500={isClients} class="font-semibold hover:underline underline-offset-4">
+						<a href="/clients">clients</a>
+					</li>
+					<li class:hidden={isHome} class:underline={isSocial} class:text-green-500={isSocial} class="font-semibold hover:underline underline-offset-4">
+						<a href="/social">social</a>
+					</li>
+
 					<li>
 						<ToggleButton />
 					</li>
 				</ul>
 			</li>
 		</ul>
-		<div class="3xl:container 3xl:mx-auto">
+		<!-- <div class="3xl:container 3xl:mx-auto">
 			<ul
 				in:fly={{ y: 100, duration: 250, easing: quintInOut }}
 				style:display={`${shouldBeHidden ? 'none' : ''}`}
@@ -75,7 +84,7 @@ const setVh = () => {
 					</li>
 				{/each}
 			</ul>
-		</div>
+		</div> -->
 	</nav>
 </header>
 {/if}

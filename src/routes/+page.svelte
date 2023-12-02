@@ -74,7 +74,7 @@
 		id="scrollArea"
 		bind:this={scrollElement}
 		on:scroll={onScroll}
-		class="fixed overflow-x-hidden overflow-y-scroll bg-transparent element-100dvh overscroll-none 3xl:container 3xl:mx-auto snap-y snap-mandatory"
+		class="fixed overflow-x-hidden overflow-y-hidden bg-transparent element-100dvh overscroll-none 3xl:container 3xl:mx-auto snap-y snap-mandatory"
 	>
 		<div id="x" class="return-home snap-start sm:snap-align-end" />
 		<div
@@ -90,11 +90,11 @@
 					"I create UI, Motion Graphics and anything we can imagine.
 				</p>
 
-				{#await importScrollDown() then module}
+				<!-- {#await importScrollDown() then module}
 					<div style:opacity={inverseScrollPercentage} class:invisible={shouldShowScrollDown}>
 						<svelte:component this={module.default} />
 					</div>
-				{/await}
+				{/await} -->
 				<!-- <Scrolldown /> -->
 			</div>
 			<div
@@ -125,7 +125,7 @@
 				</div>
 			</div>
 		</div>
-		<div
+		<!-- <div
 			class="items-end hidden w-screen sm:flex 3xl:container 3xl:mx-auto element-100dvh sm:snap-end md:snap-align-end"
 		>
 			<div class="z-50" />
@@ -145,6 +145,6 @@
 					class="absolute bottom-0 w-full h-px bg-gradient-to-r from-red-400 via-indigo-400 to-green-400"
 				/>
 			</ul>
-		</div>
+		</div> -->
 	</div>
 {/if}
