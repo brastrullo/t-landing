@@ -74,7 +74,7 @@
 		id="scrollArea"
 		bind:this={scrollElement}
 		on:scroll={onScroll}
-		class="fixed overflow-x-hidden overflow-y-hidden bg-transparent element-100dvh overscroll-none 3xl:container 3xl:mx-auto snap-y snap-mandatory"
+		class="fixed overflow-x-hidden bg-transparent element-100dvh overscroll-none 3xl:container 3xl:mx-auto snap-y snap-mandatory"
 	>
 		<div id="x" class="return-home snap-start sm:snap-align-end" />
 		<div
@@ -90,20 +90,17 @@
 					"I create UI, Motion Graphics and anything we can imagine.
 				</p>
 
-				<!-- {#await importScrollDown() then module}
-					<div style:opacity={inverseScrollPercentage} class:invisible={shouldShowScrollDown}>
+				{#await importScrollDown() then module}
+					<div class={'sm:hidden'} style:opacity={inverseScrollPercentage} class:invisible={shouldShowScrollDown}>
 						<svelte:component this={module.default} />
 					</div>
-				{/await} -->
+				{/await}
 				<!-- <Scrolldown /> -->
 			</div>
 			<div
-				class={`h-full sm:visible sm:h-auto text-2xl flex flex-col justify-end sm:w-1/2 sm:bottom-20 sm:right-20 text-center sm:text-right pb-8 sm:pb-0 scroll-pb-15 scroll-mb-15 sm:mb-32 sm:scroll-mb-32 md:scroll-mb-0`}
+				class={`element-100dvh sm:visible sm:h-auto text-2xl flex flex-col justify-end sm:w-1/2 sm:bottom-20 sm:right-20 text-center sm:text-right pb-8 sm:pb-0 scroll-pb-15 scroll-mb-15 sm:mb-32 sm:scroll-mb-32 md:scroll-mb-0`}
 			>
 				<p
-					style:transform={`${
-						windowWidth < 640 ? '' : `translate(${sTop * 0.7 * 10}px, ${sTop}px)`
-					}`}
 					class="will-change-scroll z-40 home-sub-text 5xl:text-4xl mb-[calc(25vh)] text-green-300 px-6 sm:px-0 sm:mb-4 sm:pl-4 font-light drop-shadow-2xl sm:bg-none"
 					in:fade
 					out:fly={{ x: 600, duration: 250, easing: quintInOut }}
@@ -113,9 +110,6 @@
 				<div
 					in:fade
 					out:fly={{ delay: 100, x: 600, duration: 250, easing: quintInOut }}
-					style:transform={`${
-						windowWidth < 640 ? '' : `translate(${sTop * 0.7 * 10}px, ${sTop}px)`
-					}`}
 					class="z-40 drop-shadow-2xl will-change-scroll"
 				>
 					<ContactButton
@@ -125,7 +119,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- <div
+		<div
 			class="items-end hidden w-screen sm:flex 3xl:container 3xl:mx-auto element-100dvh sm:snap-end md:snap-align-end"
 		>
 			<div class="z-50" />
@@ -145,6 +139,6 @@
 					class="absolute bottom-0 w-full h-px bg-gradient-to-r from-red-400 via-indigo-400 to-green-400"
 				/>
 			</ul>
-		</div> -->
+		</div>
 	</div>
 {/if}

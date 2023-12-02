@@ -23,7 +23,7 @@
     {#key $page.url.pathname}
       <VerticalTitleHeader {title} />
     {/key}
-        <div class="overflow-x-hidden overflow-y-hidden overscroll-contain absolute -left-10 ml-10 opacity-20 transition sm:overflow-auto md:left-1/3 xl:left-1/2 3xl:left-1/2 dark:opacity-30 top-[10vh] w-[130vw] max-h-[90vh]">
+        <div class="overflow-x-hidden overscroll-contain absolute -left-10 ml-10 opacity-20 transition sm:overflow-auto md:left-1/3 xl:left-1/2 3xl:left-1/2 dark:opacity-30 top-[10vh] w-[130vw] max-h-[90vh]">
           <div
             transition:fade
             class="bg-white dark:bg-black"
