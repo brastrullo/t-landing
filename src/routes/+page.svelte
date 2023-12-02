@@ -19,7 +19,6 @@
 	let shouldShowScrollDown;
 
 	let ready = false;
-	let ready2 = false;
 
 	const colorsArr = ['text-red-400', 'text-indigo-400', 'text-green-400'];
 	const navItems = ['clients', 'blog', 'social'];
@@ -56,7 +55,7 @@
 			out:fade={{ duration: 250 }}
 			class="flex m-auto element-100dvh w-screen fixed top-0 left-0 pointer-events-none"
 		>
-			<Llo classNames={'m-auto text-[20rem]'} />
+			<Llo classNames={'m-auto text-[20rem] opacity-75'} />
 		</div>
 	{:then module}
 		<svelte:component this={module.default}/>
