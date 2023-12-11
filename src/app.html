@@ -10,7 +10,7 @@
 			Cal("init", {origin:"https://cal.com"});
 			Cal("ui", {"styles":{"branding":{"brandColor":"#000000"}},"hideEventTypeDetails":false,"layout":"month_view"});
 		</script>
-		<meta http-equiv="Content-Security-Policy" content="img-src https://picsum.photos data:; default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://app.cal.com/embed/embed.js https://cal.com; worker-src blob: ">
+		<meta http-equiv="Content-Security-Policy" content="img-src 'self' https://picsum.photos data:; default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://app.cal.com/embed/embed.js https://cal.com; worker-src blob: ">
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
