@@ -2,7 +2,7 @@
 	import { fly } from 'svelte/transition';
 	import { quintInOut } from 'svelte/easing';
 	import ToggleButton from '$lib/components/ToggleButton.svelte';
-	import Llo from '$lib/images/llo.svelte';
+	import Llo from '$lib/assets/llo.svelte';
 	import { closeModal } from '$lib/utils/store';
 	import { links } from '$lib/utils/utils';
 	import MenuLinkItem from '$lib/components/MenuLinkItem.svelte';

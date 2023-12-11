@@ -4,8 +4,8 @@
 	import { quintInOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
 	import VerticalTitleHeader from '$lib/components/VerticalTitleHeader.svelte';
-	import AboutBGSvg from '$lib/images/about.svelte';
-	import GithubLinkedin from '$lib/images/GithubLinkedin.svelte';
+	import AboutBGSvg from '$lib/assets/about.svelte';
+	import GithubLinkedin from '$lib/assets/GithubLinkedin.svelte';
 
 	const title = 'ABOUT';
 

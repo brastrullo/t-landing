@@ -1,7 +1,7 @@
 import { browser } from '$app/environment';
 import { writable } from 'svelte/store';
 
-let darkInitState = false;
+const darkInitState = false;
 // if (browser) {
 //   const themeState = sessionStorage.getItem("theme");
 //   darkInitState = themeState ? themeState === "dark" : window.matchMedia('(prefers-color-scheme: dark)').matches

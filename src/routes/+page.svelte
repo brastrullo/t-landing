@@ -3,20 +3,20 @@
 	import { quintInOut } from 'svelte/easing';
 	import ContactButton from '$lib/components/ContactButton.svelte';
 	import WhiteBorder from '$lib/components/WhiteBorder.svelte';
-	import Llo from '$lib/images/llo.svelte';
+	import Llo from '$lib/assets/llo.svelte';
 	import { onMount } from 'svelte';
 	import { darkMode } from '$lib/utils/store';
 
-	const importScrollDown = () => import('$lib/images/scrolldown.svelte');
+	const importScrollDown = () => import('$lib/assets/scrolldown.svelte');
 	const importThrelteCanvas = () => import('$lib/components/ThrelteCanvas.svelte');
 
 	let windowWidth = 0;
 	let windowHeight = 0;
-	let sTop;
-	let inverseScrollPercentage;
+	let sTop: number;
+	let inverseScrollPercentage:number;
 	let scrollPercentage;
-	let scrollElement;
-	let shouldShowScrollDown;
+	let scrollElement: HTMLElement;
+	let shouldShowScrollDown: boolean;
 
 	let ready = false;
 
@@ -52,7 +52,7 @@
 	{#await importThrelteCanvas()}
 		<div
 			class:dark={$darkMode}
-			out:fade={{ duration: 250 }}
+			transition:fade={{ duration: 250 }}
 			class="flex m-auto element-100dvh w-screen fixed top-0 left-0 pointer-events-none"
 		>
 			<Llo classNames={'m-auto text-[20rem] opacity-75'} />

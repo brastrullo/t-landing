@@ -1,7 +1,7 @@
 <script>
 	import { page } from '$app/stores';
 	import StandardPage from '$lib/components/StandardPage.svelte'
-	import BlogBGSvg from '$lib/images/blog.svelte'
+	import BlogBGSvg from '$lib/assets/blog.svelte'
 </script>
 
 {#key $page.url}

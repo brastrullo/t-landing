@@ -1,5 +1,5 @@
-<script>
-	export let text
+<script lang=ts>
+	export let text:string;
 	export let classNames = ''
 	export let wrapperClassNames = 'my-3'
   </script>
